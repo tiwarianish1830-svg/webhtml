@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Store - Student Project</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Nike uses standard sans-serif fonts */
+        }
+
+        :root {
+            --primary-black: #111111;
+            --light-gray: #f5f5f5;
+            --accent-orange: #fa5400; /* Classic Nike accent */
+        }
+
+        body {
+            color: var(--primary-black);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 4%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 500;
+        }
+
+        .nav-links li:hover { border-bottom: 2px solid black; }
+
+        .nav-icons { display: flex; gap: 20px; font-size: 18px; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--light-gray);
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 12vw; /* Massive text like original site */
+            line-height: 0.9;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--primary-black);
+            opacity: 0.1; /* Subtle background text effect */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: 1;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            width: 80%;
+            transform: rotate(-15deg); /* Dynamic shoe angle */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-btn {
+            position: absolute;
+            bottom: 15%;
+            z-index: 3;
+            padding: 12px 30px;
+            background: black;
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover { background: var(--accent-orange); }
+
+        /* --- PRODUCT GRID --- */
+        .products { padding: 50px 4%; }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card-image {
+            background-color: var(--light-gray);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .card-image img { max-width: 80%; }
+
+        .card-info { display: flex; justify-content: space-between; }
+        .card-title { font-weight: 600; }
+        .card-category { color: gray; font-size: 14px; margin-top: 4px; }
+        .card-price { font-weight: 600; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: black;
+            color: white;
+            padding: 40px 4%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-note { color: #888; font-size: 12px; margin-top: 10px; }
+
+        /* --- ANIMATIONS --- */
+        @keyframes float {
+            0% { transform: rotate(-15deg) translateY(0px); }
+            50% { transform: rotate(-15deg) translateY(-20px); }
+            100% { transform: rotate(-15deg) translateY(0px); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simple hide for mobile */
+            .hero-text h1 { font-size: 18vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">NIKE</div> <!-- Replace text with SVG Logo if needed -->
+        <ul class="nav-links">
+            <li><a href="#">New & Featured</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Sale</a></li>
+        </ul>
+        <div class="nav-icons">
+            <span>🔍</span>
+            <span>🛒</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Just<br>Do It</h1>
+        </div>
+        <!-- PLACEHOLDER IMAGE: Replace src with your local file 'images/hero-shoe.png' -->
+        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/20547d52-3e1b-4c3d-b917-f0d7e0eb8bdf/custom-nike-air-force-1-low-by-you-shoes.png" alt="Nike Air Jordan" class="hero-image">
+        
+        <a href="#" class="cta-btn">Shop Now</a>
+    </section>
+
+    <!-- Product Section -->
+    <section class="products">
+        <h2 class="section-title">Trending Now</h2>
+        <div class="product-grid">
+            
+            <!-- Product 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <!-- Replace with your image -->
+                    <img src="https://www.superkicks.in/cdn/shop/files/1_37aa8bd3-ef71-4cfb-8b19-139a61382f94.jpg?v=1719561845&width=1946 alt="Shoe" height="300" width="300">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <div class="card-title">Nike Air Max 90</div>
+                        <div class="card-category">Men's Shoes</div>
+                    </div>
+                    <div class="card-price">₹ 11,895</div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/a6bacf33-44ca-432e-b307-4a25002d798f/NIKE%20DUNK%20LOW%20RETRO%20SE.png" alt="Shoe" height="300" width="300">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <div class="card-title">Nike Dunk Low Retro</div>
+                        <div class="card-category">Men's Shoes</div>
+                    </div>
+                    <div class="card-price">₹ 8,295</div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/3/0/30a2302Nike-IQ0028-200_1.jpg?rnd=20200526195200&" alt="Shoe">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <div class="card-title">Nike W VOMERO PREMIMUM QS FDL</div>
+                        <div class="card-category">Women's Shoes</div>
+                    </div>
+                    <div class="card-price">₹ 10,795</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Student Project. All rights reserved.</p>
+        <p class="footer-note">Disclaimer: This website is for educational purposes only. Not affiliated with Nike, Inc.</p>
+    </footer>
+
+</body>
+</html>
